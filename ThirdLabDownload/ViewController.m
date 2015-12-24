@@ -30,19 +30,29 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(IBAction)disableDownloadButton {
+    //Disable  button
+    self.downloadButton.enabled = NO;
+}
+
+-(IBAction)enableDownloadButton {
+    //Enable  button
+    self.downloadButton.enabled = YES;
+}
+
 - (IBAction)downloadImage:(id)sender
 {
-    NSString *urlString	= @"https://c1.staticflickr.com/5/4112/5170590074_714d36db83_b.jpg";
+    NSString *urlString	= @"http://fanaru.com/doge/image/18361-doge-follow-your-dreams.jpg";
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     _connection = [NSURLConnection connectionWithRequest:request delegate:self];
+    [self disableDownloadButton];
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
 {
     _data = [NSMutableData data];
     _response = response.expectedContentLength;
-    
 }
 
 -(void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data
@@ -56,6 +66,7 @@
     self.imageView.image = image;
     _data = nil;
     _connection = nil;
+    [self enableDownloadButton];
 }
 
 @end
