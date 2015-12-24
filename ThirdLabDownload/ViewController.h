@@ -13,6 +13,12 @@
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UIButton *downloadButton;
 
+@property (weak, nonatomic) IBOutlet UIProgressView *downloadProgress;
+@property (weak, nonatomic) IBOutlet UIActivityIndicatorView *downloadActivityIndicator;
+@property (weak, nonatomic) IBOutlet UILabel *downloadPercentage;
+
+@property (weak, nonatomic) IBOutlet UITextField *imageUrlInput;
+
 - (IBAction)downloadImage:(id)sender;
 @end
 

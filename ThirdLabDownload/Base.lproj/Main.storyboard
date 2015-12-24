@@ -17,39 +17,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dz1-BK-ftl">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="28" width="380" height="294"/>
+                                </variation>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DN1-mY-J5e">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                 <state key="normal" title="Download"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="154" y="361" width="93" height="30"/>
+                                    <rect key="frame" x="141" y="407" width="93" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="downloadImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3gi-Xh-WlK"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dz1-BK-ftl">
-                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="yz4-6Z-5Mi">
+                                <rect key="frame" x="0.0" y="-2" width="150" height="2"/>
                                 <variation key="widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="0.0" y="28" width="400" height="294"/>
+                                    <rect key="frame" x="20" y="397" width="334" height="2"/>
                                 </variation>
-                            </imageView>
+                            </progressView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="qCi-b9-ds0">
+                                <rect key="frame" x="-10" y="-10" width="20" height="20"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="177" y="165" width="20" height="20"/>
+                                </variation>
+                            </activityIndicatorView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qz0-hf-hVE">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="20" y="330" width="334" height="30"/>
+                                </variation>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="grg-Ef-H3o">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="169" y="368" width="36" height="21"/>
+                                </variation>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <variation key="default">
                             <mask key="subviews">
-                                <exclude reference="DN1-mY-J5e"/>
                                 <exclude reference="dz1-BK-ftl"/>
+                                <exclude reference="DN1-mY-J5e"/>
+                                <exclude reference="yz4-6Z-5Mi"/>
+                                <exclude reference="qCi-b9-ds0"/>
+                                <exclude reference="qz0-hf-hVE"/>
+                                <exclude reference="grg-Ef-H3o"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
-                                <include reference="DN1-mY-J5e"/>
                                 <include reference="dz1-BK-ftl"/>
+                                <include reference="DN1-mY-J5e"/>
+                                <include reference="yz4-6Z-5Mi"/>
+                                <include reference="qCi-b9-ds0"/>
+                                <include reference="qz0-hf-hVE"/>
+                                <include reference="grg-Ef-H3o"/>
                             </mask>
                         </variation>
                     </view>
                     <connections>
+                        <outlet property="downloadActivityIndicator" destination="qCi-b9-ds0" id="ps4-RC-kUG"/>
                         <outlet property="downloadButton" destination="DN1-mY-J5e" id="asB-hA-qCf"/>
+                        <outlet property="downloadPercentage" destination="grg-Ef-H3o" id="lRK-uM-nwZ"/>
+                        <outlet property="downloadProgress" destination="yz4-6Z-5Mi" id="HP4-v4-AOe"/>
+                        <outlet property="imageUrlInput" destination="qz0-hf-hVE" id="OMJ-cF-uma"/>
                         <outlet property="imageView" destination="dz1-BK-ftl" id="InG-Sf-e7W"/>
                     </connections>
                 </viewController>
