@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<NSURLConnectionDataDelegate>
 
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UIButton *downloadButton;
 
+- (IBAction)downloadImage:(id)sender;
 @end
 
