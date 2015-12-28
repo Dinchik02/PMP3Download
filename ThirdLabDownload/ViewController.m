@@ -72,6 +72,7 @@
     
     NSNumber *innerProgress = [NSNumber numberWithFloat:((float)_data.length/(float)_response)];
     
+    //Download progress, progressbar
     self.downloadProgress.progress = innerProgress.floatValue;
     self.downloadPercentage.text = [NSString stringWithFormat:@"%3.0f",self.downloadProgress.progress*100.0f];
 }
